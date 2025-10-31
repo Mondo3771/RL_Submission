@@ -11,6 +11,8 @@ LOG_FILES = {
     "Curiosity": "CuriosityPPO.log"
 }
 OUTPUT_DIR = "plots"
+MAX_TIMESTEPS = 1_000_000  # Clip limit
+
 
 # --- Helper to parse logs ---
 def parse_log(filepath):
@@ -32,18 +34,24 @@ def parse_log(filepath):
             match = re.search(r"total_timesteps\s+\|\s+([0-9]+)", line)
             if match:
                 current_timestep = int(match.group(1))
+                # Skip values beyond clipping limit
+                if current_timestep > MAX_TIMESTEPS:
+                    continue
 
         # rollout metrics
         if "ep_rew_mean" in line:
             val = float(re.search(r"ep_rew_mean\s+\|\s+([\-0-9.]+)", line).group(1))
-            data["ep_rew_mean"].append(val)
-            data["timesteps"].append(current_timestep if current_timestep else len(data["timesteps"]))
+            if current_timestep is not None and current_timestep <= MAX_TIMESTEPS:
+                data["ep_rew_mean"].append(val)
+                data["timesteps"].append(current_timestep)
         if "ep_len_mean" in line:
             val = float(re.search(r"ep_len_mean\s+\|\s+([\-0-9.]+)", line).group(1))
-            data["ep_len_mean"].append(val)
+            if current_timestep is not None and current_timestep <= MAX_TIMESTEPS:
+                data["ep_len_mean"].append(val)
         if "score_percentage" in line:
             val = float(re.search(r"score_percentage\s+\|\s+([\-0-9.]+)", line).group(1))
-            data["score_percentage"].append(val)
+            if current_timestep is not None and current_timestep <= MAX_TIMESTEPS:
+                data["score_percentage"].append(val)
 
         # achievements (only in certain logs)
         ach_match = re.findall(r"\|\s+([a-z_]+)\s+\|\s+([\-0-9.]+)", line)
@@ -56,7 +64,11 @@ def parse_log(filepath):
                 achievements.setdefault(a_name, []).append(float(a_val))
 
     # --- Fix uneven column lengths (fill shorter lists with NaN) ---
-    max_len = max(len(v) for v in data.values() if len(v) > 0)
+    valid_lists = [v for v in data.values() if len(v) > 0]
+    if not valid_lists:
+        return pd.DataFrame(), achievements
+
+    max_len = max(len(v) for v in valid_lists)
     for key in data:
         if len(data[key]) < max_len:
             data[key].extend([None] * (max_len - len(data[key])))
@@ -77,7 +89,7 @@ def plot_metric(all_data, metric, ylabel, subfolder):
     if plt.gca().has_data():
         plt.xlabel("Timesteps")
         plt.ylabel(ylabel)
-        plt.title(f"{ylabel} Comparison")
+        plt.title(f"{ylabel} Comparison (≤ {MAX_TIMESTEPS:,} steps)")
         plt.legend()
         plt.tight_layout()
         plt.grid(True, alpha=0.3)
@@ -118,7 +130,8 @@ if __name__ == "__main__":
         if os.path.exists(path):
             print(f"📊 Parsing {path}...")
             df, ach = parse_log(path)
-            all_data[name] = df
+            if not df.empty:
+                all_data[name] = df
             all_achievements[name] = ach
         else:
             print(f"⚠️ File not found: {path}")
@@ -128,7 +141,7 @@ if __name__ == "__main__":
     plot_metric(all_data, "ep_len_mean", "Average Episode Length", "episode_length")
     plot_metric(all_data, "score_percentage", "Achievement Score (%)", "achievements")
 
-    # Plot achievements only for logs that have them
+    # Plot achievements (only if they exist)
     plot_achievements(all_achievements)
 
-    print("✅ All available plots generated under 'plots/'")
+    print(f"✅ All available plots (≤ {MAX_TIMESTEPS:,} steps) saved in 'plots/'")
