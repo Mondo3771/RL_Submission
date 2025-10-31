@@ -7,8 +7,6 @@
 #SBATCH --cpus-per-task=8      # Using more cores for biggpu            
 #SBATCH --partition=bigbatch
 #SBATCH --time=3-00:00:00      # 3 days max runtime 
-
-
 START_TIME=$(date)
 echo "Started at: $START_TIME"
 echo "LETS COOOK IT UPPP"
