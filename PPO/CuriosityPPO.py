@@ -323,6 +323,8 @@ def main(args):
         deterministic=True,
         render=False
     )
+    achievement_callback = AchievementCallback(verbose=1)
+
     total_timesteps = args.total_timesteps
     # If continuing, the model's internal counter is used. Otherwise, start from 0.
     current_timesteps = model.num_timesteps if args.continue_training and os.path.exists(model_path) else 0
@@ -332,7 +334,7 @@ def main(args):
         print(f"\nTraining for {remaining_timesteps:,} more timesteps...\n")
         model.learn(
             total_timesteps=remaining_timesteps,
-            callback=[checkpoint_callback, eval_callback],
+            callback=[checkpoint_callback, eval_callback,achievement_callback],
             reset_num_timesteps=not (args.continue_training and os.path.exists(model_path))
         )
     else:
