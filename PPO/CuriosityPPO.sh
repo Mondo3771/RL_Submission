@@ -14,7 +14,7 @@ echo "Started at: $START_TIME"
 echo "LETS COOOK IT UPPP"
 
 
-python CuriosityPPO.py 
+python CuriosityPPO.py --use_icm --total_timesteps 2000000 --num_envs 8 --eval_freq 50000 
 
 
 
