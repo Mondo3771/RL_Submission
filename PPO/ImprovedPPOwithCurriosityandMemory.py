@@ -460,7 +460,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train a PPO agent for Crafter with ICM and Map Memory.")
     
-    parser.add_argument("--total_timesteps", type=int, default=2_000_000, help="Total timesteps to train the model.")
+    parser.add_argument("--total_timesteps", type=int, default=1_000_000, help="Total timesteps to train the model.")
     parser.add_argument("--continue_training", action="store_true", help="Flag to continue training from the best model.")
     parser.add_argument("--num_envs", type=int, default=8, help="Number of parallel environments to run.")
     parser.add_argument("--debug", action="store_true", help="Use DummyVecEnv for easier debugging (slower).")
