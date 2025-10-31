@@ -1,0 +1,6 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/home-mscluster/krankoane/miniconda3/lib/python3.13/site-packages/stable_baselines3/common/callbacks.py:418: UserWarning: Training and eval env are not of the same type<stable_baselines3.common.vec_env.vec_transpose.VecTransposeImage object at 0x7f2acc98d550> != <stable_baselines3.common.vec_env.dummy_vec_env.DummyVecEnv object at 0x7f2a97a7de50>
+  warnings.warn("Training and eval env are not of the same type" f"{self.training_env} != {self.eval_env}")

@@ -1,0 +1,166 @@
+Started at: Fri Oct 31 08:22:11 PM SAST 2025
+LETS COOOK IT UPPP
+MapMemoryWrapper: Tracking approximate position with 4 cell view radius
+WARNING: Position tracking is heuristic and may drift over long episodes
+
+Starting new training from scratch.
+
+Using cuda device
+
+Training for 1,000,000 more timesteps...
+
+Logging to ./PPO_crafter_tensorboard/PPO_2
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 18.2% (4/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 18.2% (4/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 18.2% (4/22)
+Episode Achievement Score: 18.2% (4/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 18.2% (4/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 18.2% (4/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+----------------------------------
+| achievements/       |          |
+|    collect_drink    | 2        |
+|    collect_sapling  | 1        |
+|    collect_wood     | 1        |
+|    place_plant      | 1        |
+|    score_percentage | 4.55     |
+|    total_unlocked   | 1        |
+|    wake_up          | 4        |
+| rollout/            |          |
+|    ep_len_mean      | 169      |
+|    ep_length        | 234      |
+|    ep_rew_mean      | 1.29     |
+|    ep_reward        | 0.1      |
+| time/               |          |
+|    fps              | 129      |
+|    iterations       | 1        |
+|    time_elapsed     | 63       |
+|    total_timesteps  | 8192     |
+----------------------------------
+ICM initialized with state_dim: (4, 64, 64), action_dim: 17
+ICM Feature size: 1024
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 0.0% (0/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 0.0% (0/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 0.0% (0/22)
+Episode Achievement Score: 0.0% (0/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 18.2% (4/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 0.0% (0/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 22.7% (5/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 18.2% (4/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 0.0% (0/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 27.3% (6/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 9.1% (2/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 4.5% (1/22)
+Episode Achievement Score: 13.6% (3/22)
+Episode Achievement Score: 4.5% (1/22)
+---------------------------------------------
+| achievements/             |               |
+|    collect_drink          | 4             |
+|    collect_sapling        | 1             |
+|    collect_wood           | 2             |
+|    place_plant            | 1             |
+|    place_table            | 1             |
+|    score_percentage       | 4.55          |
+|    total_unlocked         | 1             |
+|    wake_up                | 3             |
+| rollout/                  |               |
+|    ep_len_mean            | 165           |
+|    ep_length              | 174           |
+|    ep_rew_mean            | 1.17          |
+|    ep_reward              | 0.1           |
+| time/                     |               |
+|    fps                    | 71            |
+|    iterations             | 2             |
+|    time_elapsed           | 229           |
+|    total_timesteps        | 16384         |
+| train/                    |               |
+|    approx_kl              | 0.09693725    |
+|    clip_fraction          | 0.474         |
+|    clip_range             | 0.25          |
+|    entropy_loss           | -2.75         |
+|    explained_variance     | -0.217        |
+|    icm_loss               | 2.27          |
+|    intrinsic_reward_mean  | 2.1891752e-05 |
+|    intrinsic_reward_scale | 0.01          |
+|    intrinsic_reward_std   | 0.00012047118 |
+|    learning_rate          | 0.000248      |
+|    loss                   | -0.2          |
+|    n_updates              | 100           |
+|    policy_gradient_loss   | -0.115        |
+|    value_loss             | 0.0284        |
+---------------------------------------------
